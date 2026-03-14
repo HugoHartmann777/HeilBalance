@@ -1,0 +1,24 @@
+{
+  "title": "中医体质自我评估",
+  "questions": [
+    {
+      "id": 1,
+      "text": "你是否容易感到疲倦？",
+      "type": "single",
+      "options": [
+        {"text": "经常", "score": 3},
+        {"text": "有时", "score": 2},
+        {"text": "很少", "score": 1}
+      ]
+    },
+    {
+      "id": 2,
+      "text": "你是否容易口渴？？？？",
+      "type": "single",
+      "options": [
+        {"text": "是", "score": 3},
+        {"text": "否", "score": 0}
+      ]
+    }
+  ]
+}

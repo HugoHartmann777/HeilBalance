@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  HeilBalance
+
+  Created by Hugo on 09.03.26.
+  
+*/
+
+"养生功夫" = "Exercises";
+"体质测试" = "Body Test";
+"生活方式" = "Lifestyle";
+"养生知识" = "Knowledge";
+"设置" = "Settings";
+"八段锦" = "Baduanjin";
+"引导术" = "Yindao Shu";
+"太极拳" = "Taijiquan";
+"八卦掌" = "Baguazhang";
+
+
+"中医体质自我评估" = "TCM Constitution Self-Reflection Questionnaire";
