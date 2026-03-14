@@ -10,16 +10,20 @@ import AVKit
 
 struct BaDuanJinView: View {
     
-    private let sections: [BaDuanJinSection] = [
-        BaDuanJinSection(title: "第一式", subtitle: "双手托天理三焦", videoName: "bdj1"),
-        BaDuanJinSection(title: "第二式", subtitle: "左右开弓似射雕", videoName: "bdj2"),
-        BaDuanJinSection(title: "第三式", subtitle: "调理脾胃须单举", videoName: "bdj3"),
-        BaDuanJinSection(title: "第四式", subtitle: "五劳七伤往后瞧", videoName: "bdj4"),
-        BaDuanJinSection(title: "第五式", subtitle: "摇头摆尾去心火", videoName: "bdj5"),
-        BaDuanJinSection(title: "第六式", subtitle: "两手攀足固肾腰", videoName: "bdj6"),
-        BaDuanJinSection(title: "第七式", subtitle: "攒拳怒目增气力", videoName: "bdj7"),
-        BaDuanJinSection(title: "第八式", subtitle: "背后七颠百病消", videoName: "bdj8")
-    ]
+    @ObservedObject var lang = LanguageManager.shared
+    // 将 sections 改为计算属性，支持 lang 本地化
+    private var sections: [BaDuanJinSection] {
+        [
+            BaDuanJinSection(title: lang.localizedString("第一式"), subtitle: lang.localizedString("双手托天理三焦"), videoName: "bdj1"),
+            BaDuanJinSection(title: lang.localizedString("第二式"), subtitle: lang.localizedString("左右开弓似射雕"), videoName: "bdj2"),
+            BaDuanJinSection(title: lang.localizedString("第三式"), subtitle: lang.localizedString("调理脾胃须单举"), videoName: "bdj3"),
+            BaDuanJinSection(title: lang.localizedString("第四式"), subtitle: lang.localizedString("五劳七伤往后瞧"), videoName: "bdj4"),
+            BaDuanJinSection(title: lang.localizedString("第五式"), subtitle: lang.localizedString("摇头摆尾去心火"), videoName: "bdj5"),
+            BaDuanJinSection(title: lang.localizedString("第六式"), subtitle: lang.localizedString("两手攀足固肾腰"), videoName: "bdj6"),
+            BaDuanJinSection(title: lang.localizedString("第七式"), subtitle: lang.localizedString("攒拳怒目增气力"), videoName: "bdj7"),
+            BaDuanJinSection(title: lang.localizedString("第八式"), subtitle: lang.localizedString("背后七颠百病消"), videoName: "bdj8")
+        ]
+    }
     
     let columns = [
         GridItem(.flexible()),
@@ -30,10 +34,30 @@ struct BaDuanJinView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 
-                Text("八段锦 · 八式教学")
+                Text(lang.localizedString("BaduanjinTitle"))
                     .font(.largeTitle)
                     .bold()
                     .padding(.top, 20)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text(lang.localizedString("BaduanjinDescription"))
+                        .font(.body)
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [Color.orange, Color.red],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .lineSpacing(6)
+                    
+                    Text(lang.localizedString(lang.localizedString("功法免责声明")))
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .bold()
+                }
+                .padding(.top, 20)
+                
                 
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(sections) { section in

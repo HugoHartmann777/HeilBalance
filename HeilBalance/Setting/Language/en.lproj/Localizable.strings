@@ -1,20 +1,55 @@
-/* 
-  Localizable.strings
-  HeilBalance
 
-  Created by Hugo on 09.03.26.
-  
-*/
+"传统养生功法" = "Chinese Health Exercises";
+
 
 "养生功夫" = "Exercises";
 "体质测试" = "Body Test";
 "生活方式" = "Lifestyle";
 "养生知识" = "Knowledge";
 "设置" = "Settings";
+
 "八段锦" = "Baduanjin";
 "引导术" = "Yindao Shu";
 "太极拳" = "Taijiquan";
 "八卦掌" = "Baguazhang";
 
 
+
+"follow_us_X" = "Follow us on X";
+
+"language_settings" = "Language settings";
+
+"Setting" = "Setting";
+
 "中医体质自我评估" = "TCM Constitution Self-Reflection Questionnaire";
+
+"BaduanjinDescription" = "Baduanjin is a traditional Chinese movement practice consisting of gentle, flowing exercises.\nIt supports body awareness, relaxation, and regular physical activity as part of a healthy lifestyle.\nThis content is intended for general wellness purposes only and does not provide medical diagnosis or treatment.";
+
+
+"功法免责声明" = "This content is intended for general wellness and physical activity guidance only and is not for the diagnosis or treatment of any medical condition.";
+
+
+"BaduanjinTitle" = "Baduanjin Tutorial";
+
+
+"第一式" = "First Exercise";
+"第二式" = "Shooting Exercise";
+"第三式" = "Third Exercise";
+"第四式" = "Fourth Exercise";
+"第五式" = "Fifth Exercise";
+"第六式" = "Sixth Exercise";
+"第七式" = "Seventh Exercise";
+"第八式" = "Eighth Exercise";
+
+
+"双手托天理三焦" = "双手托天理三焦\nBeide Hände heben den Himmel, regulieren die drei Erwärmer\nRaise Both Hands to Regulate the Triple Burner";
+
+
+"双手托天理三焦" = "Two Hands Hold Up the Sky, Regulate the Triple Burner";
+"左右开弓似射雕" = "Draw Bow Left and Right, as if Shooting an Eagle";
+"调理脾胃须单举" = "Regulate Spleen and Stomach, Lift Hands Separately";
+"五劳七伤往后瞧" = "Look Back to Heal Five Fatigues and Seven Injuries";
+"摇头摆尾去心火" = "Swing Head and Wag Tail to Calm Heart Fire";
+"两手攀足固肾腰" = "Hold Feet with Both Hands to Strengthen Kidneys and Waist";
+"攒拳怒目增气力" = "Clench Fists and Glare to Boost Vital Energy";
+"背后七颠百病消" = "Seven Back Bounces to Eliminate All Illnesses";

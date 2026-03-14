@@ -1,3 +1,5 @@
+"传统养生功法" = "Chinesische Gesundheitsübungen";
+
 "养生功夫" = "Übungen";
 "体质测试" = "Körpertest";
 "生活方式" = "Lebensstil";
@@ -11,4 +13,40 @@
 "八卦掌" = "Baguazhang";
 
 
+"language_settings" = "Spracheinstellungen";
+
+"Setting" = "Aufstellen";
+
+
 "中医体质自我评估" = "Wellness Profile";
+
+
+"follow_us_X" = "Folgen Sie uns auf X";
+
+
+"BaduanjinDescription" = "Baduanjin ist eine traditionelle chinesische Bewegungsform mit sanften,\nfließenden Übungen. Sie unterstützt die bewusste Körperwahrnehmung,\nEntspannung und regelmäßige körperliche Aktivität im Alltag.\nDiese Inhalte dienen ausschließlich dem allgemeinen Wohlbefinden\nund ersetzen keine medizinische Beratung oder Behandlung.";
+
+"功法免责声明" = "Diese Inhalte dienen ausschließlich dem allgemeinen Wohlbefinden und der Anleitung zu körperlicher Aktivität und ersetzen keine medizinische Diagnose oder Behandlung.";
+
+"BaduanjinTitle" = "Baduanjin · Acht Übungen Anleitung";
+
+
+
+"第一式" = "Erste Übung";
+"第二式" = "Zweite Übung";
+"第三式" = "Dritte Übung";
+"第四式" = "Vierte Übung";
+"第五式" = "Fünfte Übung";
+"第六式" = "Sechste Übung";
+"第七式" = "Siebte Übung";
+"第八式" = "Achte Übung";
+
+
+"双手托天理三焦" = "Zwei Hände stützen den Himmel Two Hands Hold Up the Sky";
+"左右开弓似射雕" = "Bogen nach links und rechts spannen, als ob man einen Adler schießt";
+"调理脾胃须单举" = "Milz und Magen regulieren, Hände einzeln heben";
+"五劳七伤往后瞧" = "Zurückblicken, um fünf Ermüdungen und sieben Verletzungen zu heilen";
+"摇头摆尾去心火" = "Kopf schütteln und Schwanz bewegen, um das Herzfeuer zu beruhigen";
+"两手攀足固肾腰" = "Mit beiden Händen die Füße halten, um Nieren und Taille zu stärken";
+"攒拳怒目增气力" = "Fäuste ballen und zornig schauen, um die Lebensenergie zu steigern";
+"背后七颠百病消" = "Sieben Rückenschläge, um alle Krankheiten zu vertreiben";

@@ -10,15 +10,14 @@ import SwiftUI
 
 struct SettingMainView: View {
     
+    @ObservedObject var lang = LanguageManager.shared
+    
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink(destination: TermsView()) {
-                    Label("使用条款", systemImage: "doc.text")
-                }
-                
+
                 NavigationLink(destination: LanguageSettingsView()) {
-                    Label("语言设置", systemImage: "globe")
+                    Label(lang.localizedString("language_settings"), systemImage: "globe")
                 }
                 
                 Button(action: {
@@ -26,10 +25,10 @@ struct SettingMainView: View {
                         UIApplication.shared.open(url)
                     }
                 }) {
-                    Label("在 X 上关注我们", systemImage: "person.crop.circle.badge.plus")
+                    Label(lang.localizedString("follow_us_X"), systemImage: "person.crop.circle.badge.plus")
                 }
             }
-            .navigationTitle("设置")
+            .navigationTitle(lang.localizedString("设置"))
         }
     }
 }
