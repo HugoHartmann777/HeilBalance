@@ -20,7 +20,6 @@
 
 "中医体质自我评估" = "Wellness Profile";
 
-
 "follow_us_X" = "Folgen Sie uns auf X";
 
 
@@ -50,3 +49,80 @@
 "两手攀足固肾腰" = "Mit beiden Händen die Füße halten, um Nieren und Taille zu stärken";
 "攒拳怒目增气力" = "Fäuste ballen und zornig schauen, um die Lebensenergie zu steigern";
 "背后七颠百病消" = "Sieben Rückenschläge, um alle Krankheiten zu vertreiben";
+
+
+"language_settings" = "Spracheinstellungen";
+
+"语言设置" = "Sprache";
+
+"使用条款" = "Nutzungsbedingungen";
+
+
+"在 X 上关注我们" = "Folgen Sie uns auf X";
+
+
+"八段锦 · 八式教学" = "Baduanjin – Eight Movements Tutorial";
+
+"第一式" = "Die erste Formel";
+"第二式" = "Zweite Formel";
+"第三式" = "Die dritte Formel";
+"第四式" = "Die vierte Form";
+"第五式" = "Die fünfte Form";
+"第六式" = "Oberstufe";
+"第七式" = "Die siebte Form";
+"第八式" = "Achte Form";
+
+
+"双手托天理三焦" = "Mit beiden Händen den Himmel stützen, um den Dreifachen Erhitzer zu regulieren";
+"左右开弓似射雕" = "Den Bogen spannen und auf den Adler schießen";
+"调理脾胃须单举" = "Himmel und Erde trennen, um Milz und Magen zu regulieren";
+"五劳七伤往后瞧" = "Die weise Eule blickt nach hinten, um Überlastung und Verletzungen zu vermeiden";
+"摇头摆尾去心火" = "Den Kopf schwingen und den Schwanz bewegen, um das Herzfeuer zu vertreiben";
+"两手攀足固肾腰" = "Mit beiden Händen die Füße halten, um Nieren und Lenden zu stärken";
+"攒拳怒目增气力" = "Fäuste ballen und mit zornigem Blick die Kraft steigern";
+"背后七颠百病消" = "Auf den Zehen federnd, um Krankheiten vorzubeugen";  
+
+
+
+
+"动作说明" = "Bewegungsbeschreibung";
+"身体感知" = "Körperwahrnehmung";
+
+
+
+"八段锦第一式：动作说明" = "Bewegungsbeschreibung: Stehen Sie aufrecht mit schulterbreitem Stand.
+Heben Sie die Hände langsam vor dem Körper an, die Handflächen zeigen nach oben, und
+strecken Sie die Arme sanft über den Kopf.
+Führen Sie die Bewegung ruhig aus und kehren Sie anschließend zurück.";
+"八段锦第一式：身体感知" = "Körperwahrnehmung: Spüren Sie die sanfte Streckung des Körpers, die Aufrichtung der Wirbelsäule und einen ruhigen
+Atem.";
+
+
+"八段锦第二式：动作说明" = "Nehmen Sie einen stabilen Stand ein und beugen Sie leicht die Knie.
+Öffnen Sie die Arme seitlich, als würden Sie einen Bogen spannen, und wechseln Sie langsam die
+Seiten.";
+"八段锦第二式：身体感知" = "Achten Sie auf die Öffnung im Oberkörper und das Gleichgewicht zwischen linker und rechter
+Seite.";
+
+"八段锦第三式：动作说明" = "Eine Hand hebt sich sanft nach oben, während die andere nach unten zeigt.
+Halten Sie den Oberkörper aufrecht und wechseln Sie die Seiten.";
+"八段锦第三式：身体感知" = "Spüren Sie die vertikale Streckung und die stabile Haltung des Körpers.";
+
+"八段锦第四式：动作说明" = "Stehen Sie aufrecht, die Arme locker am Körper.
+Drehen Sie den Kopf langsam zur Seite und lassen Sie den Blick folgen.";
+"八段锦第四式：身体感知" = "Nehmen Sie die sanfte Bewegung im Nacken- und oberen Rückenbereich wahr.";
+
+"八段锦第五式：动作说明" = "Stehen Sie mit leicht gespreizten Beinen und neigen Sie den Oberkörper sanft nach vorne.
+Bewegen Sie Kopf und Oberkörper locker von Seite zu Seite.";
+"八段锦第五式：身体感知" = "Spüren Sie die Koordination und den fließenden Bewegungsrhythmus.";
+
+"八段锦第六式：动作说明" = "\tBeugen Sie sich aus dem Stand langsam nach vorne und führen Sie die Hände Richtung Füße.
+Richten Sie sich anschließend kontrolliert wieder auf.";
+"八段锦第六式：身体感知" = "Achten Sie auf die Dehnung im Rücken- und Beinbereich.";
+
+"八段锦第七式：动作说明" = "Nehmen Sie einen stabilen Stand ein und stoßen Sie die Fäuste abwechselnd nach vorne.
+Die Bewegung bleibt kontrolliert und fließend.";
+"八段锦第七式：身体感知" = "Spüren Sie Kraft, Stabilität und mentale Fokussierung.";
+
+"八段锦第八式：动作说明" = "Heben Sie langsam die Fersen an und senken Sie sie kontrolliert wieder ab.Behalten Sie eine aufrechte Haltung bei.";
+"八段锦第八式：身体感知" = "Achten Sie auf Gleichgewicht und rhythmische Bewegung.";

@@ -34,7 +34,8 @@ struct BaDuanJinView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 
-                Text(lang.localizedString("BaduanjinTitle"))
+                //Text(lang.localizedString("BaduanjinTitle"))
+                Text(lang.localizedString("八段锦 · 八式教学"))
                     .font(.largeTitle)
                     .bold()
                     .padding(.top, 20)
@@ -111,6 +112,8 @@ struct BaDuanJinDetailView: View {
     let section: BaDuanJinSection
     @State private var player: AVPlayer?
     
+    @ObservedObject var lang = LanguageManager.shared
+    
     var body: some View {
         VStack(spacing: 16) {
             
@@ -130,6 +133,91 @@ struct BaDuanJinDetailView: View {
                 Text(section.subtitle)
                     .font(.body)
                     .foregroundColor(.secondary)
+                
+                
+                Spacer()
+                    .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                
+                Text(lang.localizedString("动作说明"))
+                    .bold()                     // 加粗
+                    .foregroundColor(.red)      // 改变颜色
+                
+                if section.videoName == "bdj1" {
+                    Text(lang.localizedString("八段锦第一式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第一式：身体感知"))
+                    
+                } else if section.videoName == "bdj2" {
+                    Text(lang.localizedString("八段锦第二式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第二式：身体感知"))
+                    
+                } else if section.videoName == "bdj3" {
+                    Text(lang.localizedString("八段锦第三式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第三式：身体感知"))
+                    
+                } else if section.videoName == "bdj4" {
+                    Text(lang.localizedString("八段锦第四式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第四式：身体感知"))
+                    
+                } else if section.videoName == "bdj5" {
+                    Text(lang.localizedString("八段锦第五式：动作说明"))
+                    
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第五式：身体感知"))
+                    
+                } else if section.videoName == "bdj6" {
+                    Text(lang.localizedString("八段锦第六式：动作说明"))
+                    
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第六式：身体感知"))
+                    
+                } else if section.videoName == "bdj7" {
+                    Text(lang.localizedString("八段锦第七式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第七式：身体感知"))
+                    
+                } else if section.videoName == "bdj8" {
+                    Text(lang.localizedString("八段锦第八式：动作说明"))
+                    Spacer()
+                        .frame(minHeight: 5, maxHeight: 10) // 控制高度范围
+                    Text(lang.localizedString("身体感知"))
+                        .bold()                     // 加粗
+                        .foregroundColor(.red)      // 改变颜色
+                    Text(lang.localizedString("八段锦第八式：身体感知"))
+                }
+                
+                
             }
             .padding(.horizontal)
             

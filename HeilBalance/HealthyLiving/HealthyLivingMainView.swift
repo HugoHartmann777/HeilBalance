@@ -55,14 +55,6 @@ struct HealthyLivingMainView: View {
                         HealthyDemo(title: "呼吸方式", content: "练习腹式呼吸，帮助放松和提高肺活量。")
                     }
                     
-                    // 网页内容
-                    if let url = URL(string: "https://hugohartmann777.github.io") {
-                        WebView(url: url)
-                            .frame(height: 400)
-                            .cornerRadius(12)
-                            .shadow(radius: 5)
-                            .padding(.top, 20)
-                    }
                     
                     Spacer()
                 }

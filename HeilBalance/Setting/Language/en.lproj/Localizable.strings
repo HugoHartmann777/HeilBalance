@@ -23,6 +23,7 @@
 
 "中医体质自我评估" = "TCM Constitution Self-Reflection Questionnaire";
 
+<<<<<<< HEAD
 "BaduanjinDescription" = "Baduanjin is a traditional Chinese movement practice consisting of gentle, flowing exercises.\nIt supports body awareness, relaxation, and regular physical activity as part of a healthy lifestyle.\nThis content is intended for general wellness purposes only and does not provide medical diagnosis or treatment.";
 
 
@@ -53,3 +54,68 @@
 "两手攀足固肾腰" = "Hold Feet with Both Hands to Strengthen Kidneys and Waist";
 "攒拳怒目增气力" = "Clench Fists and Glare to Boost Vital Energy";
 "背后七颠百病消" = "Seven Back Bounces to Eliminate All Illnesses";
+
+"语言设置" = "Language settings";
+
+"language_settings" = "Language Settings";
+
+
+"使用条款" = "Terms of use";
+
+
+"在 X 上关注我们" = "Follow us on X";
+
+
+"八段锦 · 八式教学" = "Baduanjin – Acht Bewegungen Lehre";
+
+"第一式" = "First Form";
+"第二式" = "Second Form";
+"第三式" = "Third Form";
+"第四式" = "Fourth Form";
+"第五式" = "Fifth Form";
+"第六式" = "Sixth Form";
+"第七式" = "Seventh Form";
+"第八式" = "Eighth Form";
+
+
+"双手托天理三焦" = "Two Hands Hold up the Heavens to Regulate the Triple Burner";
+"左右开弓似射雕" = "Drawing the Bow to Shoot the Hawk";
+"调理脾胃须单举" = "Separate Heaven and Earth to Regulate the Spleen and Stomach";
+"五劳七伤往后瞧" = "Wise Owl Gazes Backwards to Prevent Strain and Injury";
+"摇头摆尾去心火" = "Sway the Head and Shake the Tail to Expel Heart Fire";
+"两手攀足固肾腰" = "Two Hands Hold the Feet to Strengthen the Kidneys and Waist";
+"攒拳怒目增气力" = "Clench the Fists and Glare Fiercely to Increase Strength";
+"背后七颠百病消" = "Bouncing on the Toes to Prevent Disease";
+
+"动作说明" = "Movement Description";
+"身体感知" = "Body Awareness";
+
+
+
+"八段锦第一式：动作说明" =  "Stand upright with your feet shoulder-width apart.Slowly raise your hands in front of the body, palms facing upward, and gently stretch the arms verhead. Return slowly to the starting position.";
+
+"八段锦第一式：身体感知" = "Notice the gentle stretch through the body, a natural lengthening of the spine, and calm breathing。";
+
+"八段锦第一式：动作说明" = "Stand upright with your feet shoulder-width apart. Slowly raise your hands in front of the body, palms facing upward, and gently stretch the arms overhead. Return slowly to the starting position.";
+"八段锦第一式：身体感知" = "Notice the gentle stretch through the body, a natural lengthening of the spine, and calm breathing.";
+
+"八段锦第二式：动作说明" = "Adopt a stable stance with slightly bent knees. Open the arms to each side as if drawing a bow, alternating left and right.";
+"八段锦第二式：身体感知" = "Feel the opening of the upper body and the balance between both sides.";
+
+"八段锦第三式：动作说明" = "Lift one hand gently upward while the other moves downward. Keep the torso upright and alternate sides.";
+"八段锦第三式：身体感知" = "Notice the vertical stretch and a sense of stability through the body.";
+
+"八段锦第四式：动作说明" = "Stand upright with arms relaxed. Slowly turn the head to one side, allowing the gaze to follow.";
+"八段锦第四式：身体感知" = "Feel the gentle movement in the neck and upper back.";
+
+"八段锦第五式：动作说明" = "Stand with feet apart and gently incline the torso forward. Move the head and upper body softly from side to side.";
+"八段锦第五式：身体感知" = "Notice coordination and smooth, flowing movement.";
+
+"八段锦第六式：动作说明" = "From a standing position, slowly bend forward and reach the hands toward the feet. Return to standing in a controlled manner.";
+"八段锦第六式：身体感知" = "\tFeel the stretch along the back and legs, adjusting to your comfort level.";
+
+"八段锦第七式：动作说明" = "Stand firmly and alternately extend the fists forward. Maintain controlled and smooth movements.";
+"八段锦第七式：身体感知" = "Notice strength, stability, and a sense of focus.";
+
+"八段锦第八式：动作说明" = "Slowly lift the heels off the ground and gently lower them back down. Maintain an upright posture.";
+"八段锦第八式：身体感知" = "Feel balance, rhythm, and light upward movement.";

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PDFKit
+import WebKit
 
 struct KnowledgeMainView: View {
     
@@ -29,6 +30,20 @@ struct KnowledgeMainView: View {
                         .bold()
                         .padding(.top, 30)
                     
+                    
+                    // 网页内容
+                    KnowledgeSection(
+                        title: "访问我的网页1",
+                        pdfName: "https://hugohartmann777.github.io/hugohartmann.github.io/index.html",
+                        isWeb: true
+                    )
+                    // 网页内容2
+                    KnowledgeSection(
+                        title: "访问我的网页2",
+                        pdfName: "https://hugohartmann777.github.io/hugohartmann.github.io/index2.html",
+                        isWeb: true
+                    )
+                    
                     ForEach(pdfFiles, id: \.self) { pdf in
                         KnowledgeSection(
                             title: pdf,
@@ -37,6 +52,7 @@ struct KnowledgeMainView: View {
                     }
                     
                     Spacer()
+                    
                 }
                 .padding()
             }
@@ -50,17 +66,19 @@ struct KnowledgeSection: View {
     
     let title: String
     let pdfName: String
+    var isWeb: Bool = false
+    let titleColor: Color = .primary
     
     var body: some View {
-        NavigationLink(destination: PDFDetailView(pdfName: pdfName, title: title)) {
+        NavigationLink(destination: destinationView()) {
             VStack(alignment: .leading, spacing: 12) {
                 Text(title)
                     .font(.title3)
                     .bold()
+                    .foregroundColor(titleColor)
                 
                 Text("点击查看详细内容")
                     .font(.body)
-                    .foregroundColor(.secondary)
             }
             .padding()
             .background(Color.white)
@@ -68,6 +86,15 @@ struct KnowledgeSection: View {
             .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 3)
         }
         .buttonStyle(PlainButtonStyle())
+    }
+    
+    @ViewBuilder
+    private func destinationView() -> some View {
+        if isWeb, let url = URL(string: pdfName) {
+            WebDetailView(url: url, title: title)
+        } else {
+            PDFDetailView(pdfName: pdfName, title: title)
+        }
     }
 }
 
@@ -80,6 +107,40 @@ struct PDFDetailView: View {
         PDFKitView(pdfName: pdfName)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+//struct WebDetailView: View {
+//    
+//    let url: URL
+//    let title: String
+//    
+//    var body: some View {
+//        WebView(url: url)
+//            .navigationTitle(title)
+//            .navigationBarTitleDisplayMode(.inline)
+//    }
+//}
+
+struct WebDetailView: View {
+    
+    let url: URL
+    let title: String
+    
+    @State private var isCacheCleared = false
+    
+    var body: some View {
+        WebView(url: url)
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                if !isCacheCleared {
+                    clearWebViewCache {
+                        isCacheCleared = true
+                        print("缓存清理完成，可加载最新网页")
+                    }
+                }
+            }
     }
 }
 
@@ -105,5 +166,18 @@ struct PDFKitView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: PDFView, context: Context) {
+    }
+}
+
+
+
+// 清除缓存
+func clearWebViewCache(completion: @escaping () -> Void = {}) {
+    let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
+    let dateFrom = Date(timeIntervalSince1970: 0) // 从最早时间开始清理
+    
+    WKWebsiteDataStore.default().removeData(ofTypes: dataTypes, modifiedSince: dateFrom) {
+        print("WebView 缓存已清除")
+        completion()
     }
 }
