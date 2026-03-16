@@ -20,11 +20,11 @@ struct ContentView: View {
             Divider()
             // TabBar
             HStack {
-                tabItem(index: 0, icon: "figure.mind.and.body", title: lang.localizedString("养生功夫"))
-                tabItem(index: 1, icon: "heart.text.square", title: lang.localizedString("体质测试"))
-                tabItem(index: 2, icon: "leaf", title: lang.localizedString("生活方式"))
-                tabItem(index: 3, icon: "book.closed", title: lang.localizedString("养生知识"))
-                tabItem(index: 4, icon: "gearshape", title: lang.localizedString("设置"))
+                tabItem(index: 0, icon: "figure.mind.and.body", titleKey: "养生功夫")
+                tabItem(index: 1, icon: "heart.text.square", titleKey: "体质测试")
+                tabItem(index: 2, icon: "leaf", titleKey: "生活方式")
+                tabItem(index: 3, icon: "book.closed", titleKey: "养生知识")
+                tabItem(index: 4, icon: "gearshape", titleKey: "设置")
             }
             .padding(.vertical, 20)
             .background(Color(UIColor.systemBackground))
@@ -32,12 +32,12 @@ struct ContentView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
     
-    private func tabItem(index: Int, icon: String, title: String) -> some View {
+    private func tabItem(index: Int, icon: String, titleKey: String) -> some View {
         Button(action: { selectedTab = index }) {
             VStack {
                 Image(systemName: icon)
                     .font(.system(size: 22))
-                Text(title)
+                Text(lang.localizedString(titleKey))
                     .font(.caption)
             }
             .foregroundColor(selectedTab == index ? .blue : .gray)

@@ -9,7 +9,19 @@ import SwiftUI
 import PDFKit
 import WebKit
 
+struct WebPage: Codable, Identifiable {
+    var id: String { url }
+    let title: String
+    let url: String
+}
+
+struct PageList: Codable {
+    let pages: [WebPage]
+}
+
 struct KnowledgeMainView: View {
+    
+    @State private var webPages: [WebPage] = []
     
     var pdfFiles: [String] {
         guard let resourcePath = Bundle.main.resourcePath else { return [] }
@@ -30,19 +42,13 @@ struct KnowledgeMainView: View {
                         .bold()
                         .padding(.top, 30)
                     
-                    
-                    // 网页内容
-                    KnowledgeSection(
-                        title: "访问我的网页1",
-                        pdfName: "https://hugohartmann777.github.io/hugohartmann.github.io/index.html",
-                        isWeb: true
-                    )
-                    // 网页内容2
-                    KnowledgeSection(
-                        title: "访问我的网页2",
-                        pdfName: "https://hugohartmann777.github.io/hugohartmann.github.io/index2.html",
-                        isWeb: true
-                    )
+                    ForEach(webPages) { page in
+                        KnowledgeSection(
+                            title: page.title,
+                            pdfName: page.url,
+                            isWeb: true
+                        )
+                    }
                     
                     ForEach(pdfFiles, id: \.self) { pdf in
                         KnowledgeSection(
@@ -57,7 +63,34 @@ struct KnowledgeMainView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
+            .onAppear {
+                loadPages()
+            }
         }
+    }
+    
+    func loadPages() {
+        guard let url = URL(string: "https://hugohartmann777.github.io/hugohartmann.github.io/pages.json") else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+            if let result = try? JSONDecoder().decode(PageList.self, from: data) {
+
+                let base = "https://hugohartmann777.github.io/hugohartmann.github.io/"
+
+                let fixedPages = result.pages.map { page -> WebPage in
+                    if page.url.hasPrefix("http") {
+                        return page
+                    } else {
+                        return WebPage(title: page.title, url: base + page.url)
+                    }
+                }
+
+                DispatchQueue.main.async {
+                    webPages = fixedPages
+                }
+            }
+        }.resume()
     }
 }
 
@@ -110,37 +143,15 @@ struct PDFDetailView: View {
     }
 }
 
-//struct WebDetailView: View {
-//    
-//    let url: URL
-//    let title: String
-//    
-//    var body: some View {
-//        WebView(url: url)
-//            .navigationTitle(title)
-//            .navigationBarTitleDisplayMode(.inline)
-//    }
-//}
-
 struct WebDetailView: View {
     
     let url: URL
     let title: String
     
-    @State private var isCacheCleared = false
-    
     var body: some View {
         WebView(url: url)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                if !isCacheCleared {
-                    clearWebViewCache {
-                        isCacheCleared = true
-                        print("缓存清理完成，可加载最新网页")
-                    }
-                }
-            }
     }
 }
 

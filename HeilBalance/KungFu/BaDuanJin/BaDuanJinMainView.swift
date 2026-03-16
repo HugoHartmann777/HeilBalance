@@ -52,7 +52,7 @@ struct BaDuanJinView: View {
                         )
                         .lineSpacing(6)
                     
-                    Text(lang.localizedString(lang.localizedString("功法免责声明")))
+                    Text(lang.localizedString("功法免责声明"))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                         .bold()
