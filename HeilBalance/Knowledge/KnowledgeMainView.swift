@@ -20,8 +20,9 @@ struct PageList: Codable {
 }
 
 struct KnowledgeMainView: View {
-    
+    @ObservedObject var lang = LanguageManager.shared
     @State private var webPages: [WebPage] = []
+    @State private var isLoading: Bool = false
     
     var pdfFiles: [String] {
         guard let resourcePath = Bundle.main.resourcePath else { return [] }
@@ -37,7 +38,15 @@ struct KnowledgeMainView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     
-                    Text("养生知识科普")
+                    if isLoading {
+                        HStack {
+                            Spacer()
+                            ProgressView("加载中...")
+                            Spacer()
+                        }
+                    }
+                    
+                    Text(lang.localizedString("health_knowledge"))
                         .font(.largeTitle)
                         .bold()
                         .padding(.top, 30)
@@ -50,12 +59,13 @@ struct KnowledgeMainView: View {
                         )
                     }
                     
-                    ForEach(pdfFiles, id: \.self) { pdf in
-                        KnowledgeSection(
-                            title: pdf,
-                            pdfName: pdf
-                        )
-                    }
+//                    PDF段先删除
+//                    ForEach(pdfFiles, id: \.self) { pdf in
+//                        KnowledgeSection(
+//                            title: pdf,
+//                            pdfName: pdf
+//                        )
+//                    }
                     
                     Spacer()
                     
@@ -64,34 +74,118 @@ struct KnowledgeMainView: View {
             }
             .background(Color(.systemGroupedBackground))
             .onAppear {
+                isLoading = true
+                loadPages()
+            }
+            .onChange(of: lang.currentLanguage) { _ in
+                isLoading = true
                 loadPages()
             }
         }
     }
-    
     func loadPages() {
-        guard let url = URL(string: "https://hugohartmann777.github.io/hugohartmann.github.io/pages.json") else { return }
-
+        
+        // 1️⃣ 获取 App 当前语言（优先用户设置，否则使用 App 支持语言）
+        let langCode = lang.currentLanguage
+        
+        // 2️⃣ 选择 JSON 文件
+        let fileName: String
+        switch langCode {
+        case "de":
+            fileName = "pages_de.json"
+        case "zh-Hans":
+            fileName = "pages_zh.json"
+        default:
+            fileName = "pages_en.json"
+        }
+        
+        // 3️⃣ 拼接 URL
+        let baseURL = "https://hugohartmann777.github.io/hugohartmann.github.io/"
+        let urlString = baseURL + fileName
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        // 4️⃣ 请求 JSON
         URLSession.shared.dataTask(with: url) { data, _, _ in
+            
+            // ❗ 如果失败 → fallback 到英文
+            if data == nil && fileName != "pages_en.json" {
+                loadFallbackPages(baseURL: baseURL)
+                return
+            }
+            
             guard let data = data else { return }
+            
             if let result = try? JSONDecoder().decode(PageList.self, from: data) {
-
-                let base = "https://hugohartmann777.github.io/hugohartmann.github.io/"
-
+                
                 let fixedPages = result.pages.map { page -> WebPage in
                     if page.url.hasPrefix("http") {
                         return page
                     } else {
-                        return WebPage(title: page.title, url: base + page.url)
+                        return WebPage(title: page.title, url: baseURL + page.url)
                     }
                 }
-
+                
                 DispatchQueue.main.async {
-                    webPages = fixedPages
+                    self.webPages = fixedPages
+                    self.isLoading = false
                 }
             }
+            
         }.resume()
     }
+    
+    func loadFallbackPages(baseURL: String) {
+        
+        let fallbackURL = baseURL + "pages_en.json"
+        
+        guard let url = URL(string: fallbackURL) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            
+            guard let data = data else { return }
+            
+            if let result = try? JSONDecoder().decode(PageList.self, from: data) {
+                
+                let fixedPages = result.pages.map { page -> WebPage in
+                    if page.url.hasPrefix("http") {
+                        return page
+                    } else {
+                        return WebPage(title: page.title, url: baseURL + page.url)
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.webPages = fixedPages
+                    self.isLoading = false
+                }
+            }
+            
+        }.resume()
+    }
+//    func loadPages() {
+//        guard let url = URL(string: "https://hugohartmann777.github.io/hugohartmann.github.io/pages.json") else { return }
+//
+//        URLSession.shared.dataTask(with: url) { data, _, _ in
+//            guard let data = data else { return }
+//            if let result = try? JSONDecoder().decode(PageList.self, from: data) {
+//
+//                let base = "https://hugohartmann777.github.io/hugohartmann.github.io/"
+//
+//                let fixedPages = result.pages.map { page -> WebPage in
+//                    if page.url.hasPrefix("http") {
+//                        return page
+//                    } else {
+//                        return WebPage(title: page.title, url: base + page.url)
+//                    }
+//                }
+//
+//                DispatchQueue.main.async {
+//                    webPages = fixedPages
+//                }
+//            }
+//        }.resume()
+//    }
 }
 
 
