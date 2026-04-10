@@ -59,13 +59,12 @@ struct KnowledgeMainView: View {
                         )
                     }
                     
-//                    PDF段先删除
-//                    ForEach(pdfFiles, id: \.self) { pdf in
-//                        KnowledgeSection(
-//                            title: pdf,
-//                            pdfName: pdf
-//                        )
-//                    }
+                    ForEach(pdfFiles, id: \.self) { pdf in
+                        KnowledgeSection(
+                            title: pdf,
+                            pdfName: pdf
+                        )
+                    }
                     
                     Spacer()
                     
@@ -163,29 +162,6 @@ struct KnowledgeMainView: View {
             
         }.resume()
     }
-//    func loadPages() {
-//        guard let url = URL(string: "https://hugohartmann777.github.io/hugohartmann.github.io/pages.json") else { return }
-//
-//        URLSession.shared.dataTask(with: url) { data, _, _ in
-//            guard let data = data else { return }
-//            if let result = try? JSONDecoder().decode(PageList.self, from: data) {
-//
-//                let base = "https://hugohartmann777.github.io/hugohartmann.github.io/"
-//
-//                let fixedPages = result.pages.map { page -> WebPage in
-//                    if page.url.hasPrefix("http") {
-//                        return page
-//                    } else {
-//                        return WebPage(title: page.title, url: base + page.url)
-//                    }
-//                }
-//
-//                DispatchQueue.main.async {
-//                    webPages = fixedPages
-//                }
-//            }
-//        }.resume()
-//    }
 }
 
 
@@ -271,18 +247,5 @@ struct PDFKitView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: PDFView, context: Context) {
-    }
-}
-
-
-
-// 清除缓存
-func clearWebViewCache(completion: @escaping () -> Void = {}) {
-    let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
-    let dateFrom = Date(timeIntervalSince1970: 0) // 从最早时间开始清理
-    
-    WKWebsiteDataStore.default().removeData(ofTypes: dataTypes, modifiedSince: dateFrom) {
-        print("WebView 缓存已清除")
-        completion()
     }
 }

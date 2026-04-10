@@ -21,20 +21,26 @@ struct KungFuMainView: View {
                         .foregroundColor(.black)
                         .padding(.top, 30)
                     
-                    KungFuCard(title: lang.localizedString("八段锦"), systemImage: "figure.cooldown") {
-                        BaDuanJinView()
+                    
+                    
+                    KungFuCard(title: lang.localizedString("八段锦"), systemImage: "figure.mind.and.body") {
+                        BaBuJinGangGongMainView()
                     }
                     
-                    KungFuCard(title: lang.localizedString("引导术"), systemImage: "figure.mind.and.body") {
-                        YinDaoView()
-                    }
-                    
-                    KungFuCard(title: lang.localizedString("太极拳"), systemImage: "figure.walk") {
+                    KungFuCard(title: lang.localizedString("太极拳·十三式"), systemImage: "arrow.triangle.2.circlepath") {
                         TaiJiView()
                     }
                     
-                    KungFuCard(title: lang.localizedString("八卦掌"), systemImage: "figure.strengthtraining.traditional") {
+                    KungFuCard(title: lang.localizedString("八卦掌"), systemImage: "compass.drawing") {
                         BaGuaView()
+                    }
+                    
+                    KungFuCard(title: lang.localizedString("八部金刚功"), systemImage: "figure.strengthtraining.traditional") {
+                        BaBuJinGangGongMainView()
+                    }
+                    
+                    KungFuCard(title: lang.localizedString("引导术"), systemImage: "waveform.path.ecg") {
+                        YinDaoView()
                     }
                     
                     Spacer()

@@ -73,6 +73,39 @@ struct DynamicTestView: View {
                     .cornerRadius(12)
                     .padding(.top)
                 }
+
+
+                if let name = resultName {
+                    let products = getProducts(for: name)
+
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("推荐商品")
+                            .font(.headline)
+
+                        ForEach(products) { product in
+                            HStack {
+                                Image(product.imageName)
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                                    .cornerRadius(8)
+
+                                VStack(alignment: .leading) {
+                                    Text(product.title)
+                                        .font(.subheadline)
+                                    Link("在 Amazon 查看", destination: URL(string: product.url)!)
+                                        .font(.caption)
+                                        .foregroundColor(.blue)
+                                }
+
+                                Spacer()
+                            }
+                            .padding()
+                            .background(Color(.systemGray5))
+                            .cornerRadius(10)
+                        }
+                    }
+                    .padding(.top)
+                }
             }
             .padding()
         }
@@ -100,10 +133,37 @@ struct DynamicTestView: View {
             }
         }
     }
-}
+    }
+
+    // MARK: - 商品推荐
+    func getProducts(for type: String) -> [Product] {
+        switch type {
+        case "气虚":
+            return [
+                Product(title: "补气养生茶", url: "https://www.amazon.com", imageName: "tea"),
+                Product(title: "人参补品", url: "https://www.amazon.com", imageName: "ginseng")
+            ]
+        case "湿热":
+            return [
+                Product(title: "祛湿茶", url: "https://www.amazon.com", imageName: "tea2"),
+                Product(title: "清热饮品", url: "https://www.amazon.com", imageName: "drink")
+            ]
+        default:
+            return [
+                Product(title: "健康养生书籍", url: "https://www.amazon.com", imageName: "book")
+            ]
+        }
+    }
 
 struct BodyType: Identifiable, Codable {
     let id: String
     let name: String
     let description: String
+}
+
+struct Product: Identifiable {
+    let id = UUID()
+    let title: String
+    let url: String
+    let imageName: String
 }

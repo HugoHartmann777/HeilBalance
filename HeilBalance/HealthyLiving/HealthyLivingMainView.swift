@@ -15,7 +15,7 @@ struct WebView: UIViewRepresentable {
     }
 }
 
-struct HealthyLivingMainView: View {
+struct DaKaMainView: View {
     
     var body: some View {
         NavigationStack {

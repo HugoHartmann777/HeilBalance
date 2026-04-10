@@ -9,7 +9,7 @@
 import SwiftUI
 import AVKit
 
-struct BodyTestMainView: View {
+struct TimerMainView: View {
     @ObservedObject var lang = LanguageManager.shared
     
     var body: some View {
@@ -18,7 +18,7 @@ struct BodyTestMainView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     
-                    Text("健康自测")
+                    Text("心法口诀")
                         .font(.largeTitle)
                         .bold()
                         .padding(.top, 30)

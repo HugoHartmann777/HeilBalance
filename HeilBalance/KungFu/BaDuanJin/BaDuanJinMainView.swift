@@ -14,14 +14,14 @@ struct BaDuanJinView: View {
     // 将 sections 改为计算属性，支持 lang 本地化
     private var sections: [BaDuanJinSection] {
         [
-            BaDuanJinSection(title: lang.localizedString("第一式"), subtitle: lang.localizedString("双手托天理三焦"), videoName: "bdj1"),
-            BaDuanJinSection(title: lang.localizedString("第二式"), subtitle: lang.localizedString("左右开弓似射雕"), videoName: "bdj2"),
-            BaDuanJinSection(title: lang.localizedString("第三式"), subtitle: lang.localizedString("调理脾胃须单举"), videoName: "bdj3"),
-            BaDuanJinSection(title: lang.localizedString("第四式"), subtitle: lang.localizedString("五劳七伤往后瞧"), videoName: "bdj4"),
-            BaDuanJinSection(title: lang.localizedString("第五式"), subtitle: lang.localizedString("摇头摆尾去心火"), videoName: "bdj5"),
-            BaDuanJinSection(title: lang.localizedString("第六式"), subtitle: lang.localizedString("两手攀足固肾腰"), videoName: "bdj6"),
-            BaDuanJinSection(title: lang.localizedString("第七式"), subtitle: lang.localizedString("攒拳怒目增气力"), videoName: "bdj7"),
-            BaDuanJinSection(title: lang.localizedString("第八式"), subtitle: lang.localizedString("背后七颠百病消"), videoName: "bdj8")
+            BaDuanJinSection(title: lang.localizedString("第一式"), subtitle: lang.localizedString("八段锦第一式"), videoName: "bdj1"),
+            BaDuanJinSection(title: lang.localizedString("第二式"), subtitle: lang.localizedString("八段锦第二式"), videoName: "bdj2"),
+            BaDuanJinSection(title: lang.localizedString("第三式"), subtitle: lang.localizedString("八段锦第三式"), videoName: "bdj3"),
+            BaDuanJinSection(title: lang.localizedString("第四式"), subtitle: lang.localizedString("八段锦第四式"), videoName: "bdj4"),
+            BaDuanJinSection(title: lang.localizedString("第五式"), subtitle: lang.localizedString("八段锦第五式"), videoName: "bdj5"),
+            BaDuanJinSection(title: lang.localizedString("第六式"), subtitle: lang.localizedString("八段锦第六式"), videoName: "bdj6"),
+            BaDuanJinSection(title: lang.localizedString("第七式"), subtitle: lang.localizedString("八段锦第七式"), videoName: "bdj7"),
+            BaDuanJinSection(title: lang.localizedString("第八式"), subtitle: lang.localizedString("八段锦第八式"), videoName: "bdj8")
         ]
     }
     
@@ -41,7 +41,7 @@ struct BaDuanJinView: View {
                     .padding(.top, 20)
                 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(lang.localizedString("BaduanjinDescription"))
+                    Text(lang.localizedString("BaDuanJinDescription"))
                         .font(.body)
                         .foregroundStyle(
                             LinearGradient(
@@ -231,23 +231,5 @@ struct BaDuanJinDetailView: View {
         }
         .navigationTitle(section.title)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-
-struct FullControlVideoPlayer: UIViewControllerRepresentable {
-    let player: AVPlayer
-    
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let controller = AVPlayerViewController()
-        controller.player = player
-        controller.showsPlaybackControls = true
-        controller.entersFullScreenWhenPlaybackBegins = false
-        controller.exitsFullScreenWhenPlaybackEnds = true
-        return controller
-    }
-    
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
-        // nothing
     }
 }

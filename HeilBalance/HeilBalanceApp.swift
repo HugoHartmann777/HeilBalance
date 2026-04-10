@@ -18,6 +18,10 @@ enum AppLanguage: String {
 @main
 struct HeilBalanceApp: App {
     
+    init() {
+        scheduleDailyWorkoutReminder()
+    }
+    
     @AppStorage("AppLanguage") private var storedLanguage: String = AppLanguage.system.rawValue
     
     private var appLocale: Locale {
