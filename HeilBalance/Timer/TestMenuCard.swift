@@ -5,40 +5,7 @@
 //  Created by Hugo on 24.02.26.
 //
 
-
 import SwiftUI
-import AVKit
-
-struct TimerMainView: View {
-    @ObservedObject var lang = LanguageManager.shared
-    
-    var body: some View {
-        
-        NavigationStack {
-            ScrollView {
-                VStack(spacing: 24) {
-                    
-                    Text("心法口诀")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.top, 30)
-                    
-                    if let questionnaire = loadQuestionnaire(from: "TiZhiTest") {
-                        TestMenuCard(title: lang.localizedString("中医体质自我评估"), systemImage: "figure.mind.and.body") {
-                            DynamicTestView(questionnaire: questionnaire, types: questionnaire.types)
-                        }
-                    } else {
-                        Text("Error⚠️")
-                    }
-                    
-                    Spacer()
-                }
-                .padding()
-            }
-            .background(Color(.systemGroupedBackground))
-        }
-    }
-}
 
 struct TestMenuCard<Destination: View>: View {
     
