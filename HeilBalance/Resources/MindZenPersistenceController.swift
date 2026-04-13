@@ -6,7 +6,7 @@ class HabitPersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "HeilBalance")
+        container = NSPersistentContainer(name: "habit")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
