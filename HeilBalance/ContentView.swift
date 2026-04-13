@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     @ObservedObject var lang = LanguageManager.shared
@@ -11,7 +12,8 @@ struct ContentView: View {
                 switch selectedTab {
                 case 0: KungFuMainView()    // 功夫
                 case 1: TimerMainView()     // 计时器
-                case 2: HabitMainView()
+                case 2: HabitMainView(context: MindZenPersistenceController.shared.container.viewContext)
+                        .environment(\.managedObjectContext, MindZenPersistenceController.shared.container.viewContext)
                 case 3: XianXianMainView() // 中医知识
                 case 4: SettingMainView()
                 default: HomeView()
@@ -20,7 +22,7 @@ struct ContentView: View {
             Divider()
             // TabBar
             HStack {
-                tabItem(index: 0, icon: "figure.mind.and.body", titleKey: "养生功夫")
+                tabItem(index: 0, icon: "figure.mind.and.body", titleKey: "功夫")
                 tabItem(index: 1, icon: "heart.text.square", titleKey: "计时")
                 tabItem(index: 2, icon: "leaf", titleKey: "时光留痕")
                 tabItem(index: 3, icon: "book.closed", titleKey: "先贤")

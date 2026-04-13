@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct TermsView: View {
     var body: some View {

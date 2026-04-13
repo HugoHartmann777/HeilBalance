@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import Foundation
 
 class LanguageManager: ObservableObject {
     static let shared = LanguageManager()
