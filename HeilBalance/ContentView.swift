@@ -3,7 +3,7 @@ import CoreData
 
 struct ContentView: View {
     @ObservedObject var lang = LanguageManager.shared
-    @State private var selectedTab = 0
+    @State private var selectedTab = 2
     
     var body: some View {
         VStack(spacing: 0) {
@@ -11,10 +11,10 @@ struct ContentView: View {
             ZStack {
                 switch selectedTab {
                 case 0: KungFuMainView()    // 功夫
-                case 1: TimerMainView()     // 计时器
-                case 2: HabitMainView(context: MindZenPersistenceController.shared.container.viewContext)
-                        .environment(\.managedObjectContext, MindZenPersistenceController.shared.container.viewContext)
-                case 3: XianXianMainView() // 中医知识
+                case 1: XianXianMainView()
+                case 2: HabitMainView(context: HabitPersistenceController.shared.container.viewContext)
+                        .environment(\.managedObjectContext, HabitPersistenceController.shared.container.viewContext)
+                case 3: TimerMainView()     // 计时器
                 case 4: SettingMainView()
                 default: HomeView()
                 }

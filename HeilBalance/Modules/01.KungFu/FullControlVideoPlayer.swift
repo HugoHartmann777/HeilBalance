@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AVKit
+import UIKit // 添加这一行
+
 
 struct FullControlVideoPlayer: UIViewControllerRepresentable {
     let player: AVPlayer

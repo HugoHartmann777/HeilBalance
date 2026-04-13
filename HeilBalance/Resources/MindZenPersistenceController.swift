@@ -1,12 +1,12 @@
 import CoreData
 
-class MindZenPersistenceController {
-    static let shared = MindZenPersistenceController()
+class HabitPersistenceController {
+    static let shared = HabitPersistenceController()
 
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "MindZen")
+        container = NSPersistentContainer(name: "HeilBalance")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
