@@ -19,7 +19,7 @@ struct PageList: Codable {
     let pages: [WebPage]
 }
 
-struct KnowledgeMainView: View {
+struct XianXianMainView: View {
     @ObservedObject var lang = LanguageManager.shared
     @State private var webPages: [WebPage] = []
     @State private var isLoading: Bool = false

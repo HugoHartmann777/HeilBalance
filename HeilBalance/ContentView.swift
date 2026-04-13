@@ -11,8 +11,8 @@ struct ContentView: View {
                 switch selectedTab {
                 case 0: KungFuMainView()    // 功夫
                 case 1: TimerMainView()     // 计时器
-                case 2: DaKaMainView()
-                case 3: KnowledgeMainView() // 中医知识
+                case 2: HabitMainView()
+                case 3: XianXianMainView() // 中医知识
                 case 4: SettingMainView()
                 default: HomeView()
                 }
