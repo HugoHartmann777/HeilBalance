@@ -47,6 +47,7 @@ struct HabitStatisticsView: View {
         formatter.locale = Locale.current
         formatter.dateFormat = "E"
         
+    @ObservedObject var lang = LanguageManager.shared
         let startDate = Calendar.current.startOfDay(for: habit.startDate ?? Date.distantFuture)
 
         return HStack(spacing: 16) {

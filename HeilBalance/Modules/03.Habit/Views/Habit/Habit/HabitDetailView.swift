@@ -11,45 +11,72 @@ struct HabitDetailView: View {
     @State private var showDeleteConfirm: Bool = false
     @State private var showArchiveConfirm: Bool = false
     
+    @State private var showingCalendar = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
                     HabitStatisticsView(habit: habit)
                     Divider()
-                    // 🔥 显示所有 note
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack() {
-                            Text("记录：")
-                                .font(.title2)
-                                .foregroundColor(.orange)
-                            
-                            Divider()
-                            Spacer()
-                        }
-                        if sortedNotes.isEmpty {
-                            Text("暂无记录")
-                                .foregroundColor(.gray)
-                                .font(.subheadline)
-                        } else {
-                            ForEach(sortedNotes, id: \.objectID) { log in
-                                VStack(alignment: .leading, spacing: 4) {
-                                    if let note = log.note, !note.isEmpty {
-                                        Text(note)
-                                            .font(.body)
-                                            .foregroundColor(.primary)
-                                    }
-                                    if let date = log.date {
-                                        Text(date, style: .date)
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                    }
-                                }
-                                .padding(.vertical, 6)
-                                Divider()
+                    
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("打卡历史")
+                            .font(.headline)
+                            .padding(.leading)
+                        
+                        Button(action: {
+                            showingCalendar = true
+                        }) {
+                            HStack {
+                                Text("查看本月日历")
+                                    .font(.subheadline)
+                                Spacer()
+                                Image(systemName: "calendar")
                             }
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(12)
+                            .padding(.horizontal)
                         }
                     }
+                    .sheet(isPresented: $showingCalendar) {
+                        CalendarSheetView() // ⚠️ 注意：habits 来源不明，需定义
+                    }
+                    // 🔥 显示所有 note
+//                    VStack(alignment: .leading, spacing: 12) {
+//                        HStack() {
+//                            Text("记录：")
+//                                .font(.title2)
+//                                .foregroundColor(.orange)
+//                            
+//                            Divider()
+//                            Spacer()
+//                        }
+//                        if sortedNotes.isEmpty {
+//                            Text("暂无记录")
+//                                .foregroundColor(.gray)
+//                                .font(.subheadline)
+//                        } else {
+//                            ForEach(sortedNotes, id: \.objectID) { log in
+//                                VStack(alignment: .leading, spacing: 4) {
+//                                    if let note = log.note, !note.isEmpty {
+//                                        Text(note)
+//                                            .font(.body)
+//                                            .foregroundColor(.primary)
+//                                    }
+//                                    if let date = log.date {
+//                                        Text(date, style: .date)
+//                                            .font(.caption)
+//                                            .foregroundColor(.gray)
+//                                    }
+//                                }
+//                                .padding(.vertical, 6)
+//                                Divider()
+//                            }
+//                        }
+//                    }
                     
                 }
                 .padding()
@@ -58,14 +85,14 @@ struct HabitDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button(action: {
-                            noteSheet = true
-                        }) {
-                            Label("记录", systemImage: "plus")
-                                .font(.system(size: 24))
-                        }
+//                        Button(action: {
+//                            noteSheet = true
+//                        }) {
+//                            Label("记录", systemImage: "plus")
+//                                .font(.system(size: 24))
+//                        }
                         
-                        Divider()
+                        //Divider()
                         
                         Button(action: {
                             editSheet = true
@@ -98,9 +125,9 @@ struct HabitDetailView: View {
                     }
                 }
             }
-            .sheet(isPresented: $noteSheet) {
-                AddHabitNoteView(habit: habit)
-            }
+//            .sheet(isPresented: $noteSheet) {
+//                AddHabitNoteView(habit: habit)
+//            }
             .sheet(isPresented: $editSheet) {
                 EditHabitView(habit: habit)
             }

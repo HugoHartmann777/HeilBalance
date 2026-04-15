@@ -74,7 +74,7 @@ class HabitStorage: ObservableObject {
     }
 
     static func getFormattedDate() -> String {
-        let strWeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        let strWeekDays = ["周天", "周一", "周二", "周三", "周四", "周五", "周六"]
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
