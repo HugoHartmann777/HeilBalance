@@ -7,7 +7,7 @@ class HabitFormViewModel: ObservableObject {
     private let viewContext: NSManagedObjectContext
     private var habit: Habit?  // 不再强制提前创建
     let isEditing: Bool
-
+    
     // 对应 UI 的绑定属性
     @Published var name: String = ""
     @Published var icon: String = "flame.fill"
@@ -20,16 +20,16 @@ class HabitFormViewModel: ObservableObject {
     @Published var goalNumber: Int = 1
     @Published var goalUnit: String = ""
     @Published var goalFrequency: String = ""
-
+    
     init(habit: Habit? = nil, context: NSManagedObjectContext, isEditing: Bool) {
         self.viewContext = context
         self.isEditing = isEditing
         self.habit = habit
-
-//        if let habit = habit {
-//            self.selectedCategory = habit.category
-//            loadHabitData(from: habit)
-//        }
+        
+        //        if let habit = habit {
+        //            self.selectedCategory = habit.category
+        //            loadHabitData(from: habit)
+        //        }
         
         if let habit = habit {
             // 编辑模式，直接用 habit 的分组
@@ -40,7 +40,7 @@ class HabitFormViewModel: ObservableObject {
             self.selectedCategory = nil
         }
     }
-
+    
     private func loadHabitData(from habit: Habit) {
         name = habit.name ?? ""
         icon = habit.icon ?? "flame.fill"
@@ -55,15 +55,15 @@ class HabitFormViewModel: ObservableObject {
         checklist = habit.checklist ?? ""
         startDate = habit.startDate ?? Date()
     }
-
+    
     func save() {
         let habitToSave = habit ?? Habit(context: viewContext)
-
+        
         if habit == nil {
             habitToSave.id = UUID()
             habitToSave.createdAt = Date()
         }
-
+        
         habitToSave.name = name
         habitToSave.icon = icon
         do {
@@ -81,7 +81,7 @@ class HabitFormViewModel: ObservableObject {
         habitToSave.startDate = startDate
         habitToSave.isRemoved = false
         habitToSave.isArchived = false
-
+        
         if let selectedCategory = selectedCategory {
             selectedCategory.addToHabits(habitToSave)
             habitToSave.category = selectedCategory
@@ -98,17 +98,31 @@ class HabitFormViewModel: ObservableObject {
             category.addToHabits(habitToSave)
             habitToSave.category = category
         }
-
+        
         do {
             try viewContext.save()
+            if let date = habitToSave.reminderTime {
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: date)
+                let minute = calendar.component(.minute, from: date)
+                
+                NotificationManager.shared.scheduleHabitReminder(
+                    habitId: "sleep",
+                    reminderId: "1716",
+                    title: "🌲🎄🌲",
+                    body: habitToSave.name ?? "",
+                    hour: hour,
+                    minute: minute
+                )
+            }
             print("✅ Habit 保存成功: \(habitToSave.name ?? "")")
         } catch {
             print("❌ Habit 保存失败: \(error)")
         }
-
+        
         self.habit = habitToSave  // 保存后可以赋值，便于后续继续编辑
     }
-
+    
     func fetchDefaultCategory() -> Category? {
         guard viewContext.persistentStoreCoordinator != nil else { return nil }
         let request: NSFetchRequest<Category> = Category.fetchRequest()

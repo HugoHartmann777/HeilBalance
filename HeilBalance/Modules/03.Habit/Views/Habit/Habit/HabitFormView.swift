@@ -34,22 +34,22 @@ struct HabitFormView: View {
             }
                 .disabled(viewModel.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         )
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    isNavigatingToTemplate = true
-                }) {
-                    Text("从模版导入")
-                }
-            }
-        }
-        .background(
-            NavigationLink(
-                destination: HabitTemplateListView(),
-                isActive: $isNavigatingToTemplate,
-                label: { EmptyView() }
-            )
-        )
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Button(action: {
+//                    isNavigatingToTemplate = true
+//                }) {
+//                    Text("从模版导入")
+//                }
+//            }
+//        }
+//        .background(
+//            NavigationLink(
+//                destination: HabitTemplateListView(),
+//                isActive: $isNavigatingToTemplate,
+//                label: { EmptyView() }
+//            )
+//        )
     }
     
     private var categorySection: some View {

@@ -19,10 +19,14 @@ struct HabitDetailView: View {
                     Divider()
                     // 🔥 显示所有 note
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("记录：")
-                            .font(.title2)
-                            .foregroundColor(.orange)
-                        
+                        HStack() {
+                            Text("记录：")
+                                .font(.title2)
+                                .foregroundColor(.orange)
+                            
+                            Divider()
+                            Spacer()
+                        }
                         if sortedNotes.isEmpty {
                             Text("暂无记录")
                                 .foregroundColor(.gray)

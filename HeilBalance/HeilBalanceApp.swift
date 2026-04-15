@@ -18,26 +18,7 @@ enum AppLanguage: String {
 @main
 struct HeilBalanceApp: App {
     
-    init (){
-        NotificationManager.shared.requestAuthorization()
-        
-        NotificationManager.shared.scheduleHabitReminder(
-            habitId: "drink_water",
-            reminderId: "1716",
-            title: "喝水提醒 💧",
-            body: "该喝水啦！",
-            hour: 17,
-            minute: 17
-        )
-        NotificationManager.shared.scheduleHabitReminder(
-            habitId: "sleep",
-            reminderId: "1716",
-            title: "喝水提醒 💧",
-            body: "该喝水啦！",
-            hour: 17,
-            minute: 18
-        )
-    }
+    
     @AppStorage("AppLanguage") private var storedLanguage: String = AppLanguage.system.rawValue
     
     private var appLocale: Locale {

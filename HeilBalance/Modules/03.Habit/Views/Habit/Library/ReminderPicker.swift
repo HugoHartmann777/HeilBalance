@@ -16,6 +16,7 @@ struct ReminderPicker: View {
                 Image(systemName: "bell.fill").foregroundColor(.purple)
                 VStack(alignment: .leading) {
                     Text("提醒")
+
                     Text(DateFormatter.hourMinute.string(from: reminderTime))
                         .font(.subheadline)
                         .foregroundColor(.gray)
