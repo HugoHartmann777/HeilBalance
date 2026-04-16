@@ -32,8 +32,6 @@ struct HabitMainView: View {
             
             Spacer()
             Divider()
-            
-            //HabitHistoryView()
         }
         .sheet(isPresented: $showingNewHabitSheet) {
             CreateHabitView()

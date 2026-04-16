@@ -17,7 +17,7 @@ struct CalendarSheetView: View {
 
     // 初始展示当前月
     @State private var selectedMonthIndex = 0
-    private let monthRange = -12...12  // 可前后滑动 1 年
+    private let monthRange = -120...120  // 可前后滑动 1 年
 
     var body: some View {
         VStack {
