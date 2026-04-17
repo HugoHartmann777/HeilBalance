@@ -236,7 +236,6 @@ final class CoreDataHelper {
         
         let unchecked = max(totalDays - completed - skipped, 0)
         
-        print("🚀 calculateStats: totalDays = \(totalDays)")
         return (completed, skipped, unchecked, totalDays)
     }
     

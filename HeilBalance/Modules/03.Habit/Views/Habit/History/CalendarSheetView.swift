@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct CalendarSheetView: View {
-    @FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Habit.name, ascending: true)],
-            animation: .default
-        ) private var habits: FetchedResults<Habit>
+    let habit: Habit
     
     @Environment(\.dismiss) var dismiss
 
@@ -34,7 +31,7 @@ struct CalendarSheetView: View {
             TabView(selection: $selectedMonthIndex) {
                 ForEach(monthRange, id: \.self) { offset in
                     let monthDate = Calendar.current.date(byAdding: .month, value: offset, to: Date())!
-                    SingleMonthCalendarView(date: monthDate, habits: Array(habits))  // 这里转成数组
+                    SingleMonthCalendarView(date: monthDate, habit: habit)  // 这里转成数组
                         .tag(offset)
                 }
             }

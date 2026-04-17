@@ -42,7 +42,7 @@ struct HabitDetailView: View {
                         }
                     }
                     .sheet(isPresented: $showingCalendar) {
-                        CalendarSheetView() // ⚠️ 注意：habits 来源不明，需定义
+                        CalendarSheetView(habit: habit) // ⚠️ 注意：habits 来源不明，需定义
                     }
                     // 🔥 显示所有 note
 //                    VStack(alignment: .leading, spacing: 12) {
