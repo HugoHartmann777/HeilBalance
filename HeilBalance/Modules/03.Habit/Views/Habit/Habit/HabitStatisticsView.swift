@@ -89,6 +89,11 @@ struct HabitStatisticsView: View {
                     cdHelper.markHabitSkipped(for: habit, on: date)
                 }
             }
+            Button("未打卡") {
+                if let date = selectedDay {
+                    cdHelper.markHabitUnchecked(for: habit, on: date)
+                }
+            }
             Button("取消", role: .cancel) { }
         }
     }

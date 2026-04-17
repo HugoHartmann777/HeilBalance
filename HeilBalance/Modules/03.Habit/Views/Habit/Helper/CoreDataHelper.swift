@@ -85,6 +85,33 @@ final class CoreDataHelper {
         markHabit(habit, as: .skipped, on: date)
     }
     
+    func markHabitUnchecked(for habit: Habit, on date: Date) {
+        let start = startOfDay(for: date) as NSDate
+        let end = startOfNextDay(for: date) as NSDate
+        
+        let fetchRequest: NSFetchRequest<HabitLog> = HabitLog.fetchRequest()
+        fetchRequest.predicate = NSPredicate(
+            format: "habit == %@ AND (date >= %@ AND date < %@)",
+            habit, start, end
+        )
+        fetchRequest.fetchLimit = 10
+        
+        do {
+            let results = try viewContext.fetch(fetchRequest)
+            
+            for log in results {
+                habit.mutableSetValue(forKey: "habitLogs").remove(log)
+                viewContext.delete(log)
+            }
+            
+            try viewContext.save()
+            print("✅ 已标记为未打卡（删除日志成功）")
+            
+        } catch {
+            print("❌ markHabitUnchecked 失败: \(error)")
+        }
+    }
+    
     // MARK: - 是否已完成（今天）
     func isHabitCompletedToday(_ habit: Habit) -> Bool {
         return isHabitMarkedToday(habit, as: .completed)
